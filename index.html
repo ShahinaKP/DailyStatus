@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-app="DailyStatus">
+<head>
+	<title>DailyStatus</title>
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+	<script src= "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script> 
+	<script src="app/scripts/app.js" type="text/javascript"></script>
+	<script src="app/controllers/dailyStatusCtlr.js" type="text/javascript"></script>
+	<script src="app/services/dailyStatusServices.js" type="text/javascript"></script>
+	<link href="assets/libs/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<h1 class="page-title">Daily Status</h1>
+	<section id="main-content" class="col-md-12" ng-controller="DailyStatusController">
+		<form>
+			<h1>Bursts</h1>
+			<div class="row">
+				<div class="col-md-2">
+                    <label class="label">Date</label>
+                    <label class="select">
+                        <select class="input-sm" id="postedFor" name="postedFor" ng-model="myDate" ng-options="date for date in dates"></select> 
+                    </label>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="label">Project</label>
+                    <label class="input">
+                        <input type="text" id="project" name="project" ng-model="project" list="projectList" autocomplete="off">
+                        <datalist id="projectList">
+                        	<select>
+                        		<option ng-repeat="project in projects" value="{{project}}"></option>
+                    		</select>
+                        </datalist>
+                    </label>
+                </div>
+
+                <div class="col-md-2">
+                    <label class="label">Activity Type</label>
+                    <label class="select">
+                        <select class="input-sm ng-pristine ng-valid" id="activityType" name="activityType" ng-model="type" ng-options="activityType for activityType in activityTypes"></select>
+                    </label>
+                </div>
+
+                <div class="col-md-2">
+                	<label class="label">Time Spent (hours:minutes)</label>
+	                <div class="col-md-6 no-padding">
+	                    <label class="select">
+	                        <select class="input-sm ng-pristine ng-valid" id="timeSpent_0" name="timeSpent_0" ng-model="dailyStatusContent.newDailyStatus.timeSpent_0">
+	                                <option value="00">00</option>
+	                                <option value="01">01</option>
+	                                <option value="02">02</option>
+	                                <option value="03">03</option>
+	                                <option value="04">04</option>
+	                                <option value="05">05</option>
+	                                <option value="06">06</option>
+	                                <option value="07">07</option>
+	                                <option value="08">08</option>
+	                                <option value="09">09</option>
+	                                <option value="10">10</option>
+	                                <option value="11">11</option>
+	                                <option value="12">12</option>
+	                                <option value="13">13</option>
+	                                <option value="14">14</option>
+	                                <option value="15">15</option>
+	                                <option value="16">16</option>
+	                                <option value="17">17</option>
+	                                <option value="18">18</option>
+	                                <option value="19">19</option>
+	                                <option value="20">20</option>
+	                                <option value="21">21</option>
+	                                <option value="22">22</option>
+	                                <option value="23">23</option>
+	                                <option value="24">24</option>
+	                        </select> <i></i>
+                    	</label>
+                	</div>
+	                <div class="col-md-6 no-padding">
+	                    <label class="select">
+	                        <select class="input-sm ng-pristine ng-valid" id="timeSpent_1" name="timeSpent_1" ng-model="dailyStatusContent.newDailyStatus.timeSpent_1">
+	                                <option value="00">00</option>
+	                                <option value="15">15</option>
+	                                <option value="30">30</option>
+	                                <option value="45">45</option>
+	                        </select> <i></i>
+	                    </label>
+	                </div>
+                </div>
+			</div>
+
+			<div class="row">
+                <div class="col-md-6">
+                    <label class="label">Activity Description</label>
+                    <label class="textarea clear"> 
+                        <textarea class="clear" rows="5" name="message" id="message" ng-model="dailyStatusContent.newDailyStatus.message" maxlength="180" placeholder="Use T# or t# in your description to indicate Redmine ticket/task. For example : T#1234" class="ng-pristine ng-valid"></textarea>
+                    </label>
+                    <em for="message" class="valid" style="display: none;"></em>
+                </div>
+                <div class="col-md-6">
+                    <p class="padding-top-10 margin-top-10">Enter the actual number of hours against each of your project(s). If you're working on multiple projects, submit separate entry for each project. <br>
+                    If you're not assigned to a project, select the option "N/A" from Project drop down. <br>
+                    You should book the time against a project if you are contributing your effort, whether you are allocated or not. If you have been working on the project regularly, ask the PM to formally allocate you. <br>
+                    Please make sure you're not booking time for organizational (non project) activities like pre-sales, trainings, your non project related self learning activity to any project.</p>
+                </div>
+            </div>
+
+            <div class="row" id="submitBtnRow">
+                <div class="col col-sm-12">
+                    <div class="center formFooter">
+                        <button type="button" class="btn btn-primary" id="saveDailyStatusButton" ng-click="saveDailyStatus(dailyStatusContent.newDailyStatus);">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+		</form>
+		
+	</section>
+</body>
+</html>

@@ -1,0 +1,1 @@
+var dailyStatus = angular.module('DailyStatus',[]);

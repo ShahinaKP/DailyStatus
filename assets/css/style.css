@@ -1,0 +1,56 @@
+body {
+    margin: 20px!important;
+}
+
+.page-title {
+	color: #4c4f53;	  
+	font-family: "Open Sans",Arial,Helvetica,Sans-Serif;  
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -1px;
+    margin: 12px 0 28px;
+}
+
+#main-content{
+    background: #fbfbfb;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 1px #ececec;
+    -webkit-box-shadow: 0 1px 1px #ececec;
+    -moz-box-shadow: 0 1px 1px #ececec;
+    position: relative;
+}
+
+#main-content h1{
+	color: rgb(0, 0, 0);
+	display: block;
+	font-family: 'Open Sans',Arial,Helvetica,sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	line-height: normal;
+	margin-bottom: 28px;
+	margin-left: 0;
+	margin-right: 0px;
+	margin-top: 12px;
+}
+
+.label{
+	color: rgb(0, 0, 0)!important;
+	display: block!important;
+	font-family: "Open Sans",Arial,Helvetica,Sans-Serif;  
+    font-size: 12px!important;
+	padding: 0!important;
+	text-align: left!important;
+}
+
+.center {
+    text-align: center !important;
+}
+
+.clear{	
+    float: left;
+    width: 100%;
+}
+
+#submitBtnRow{
+	margin: 20px;
+}
