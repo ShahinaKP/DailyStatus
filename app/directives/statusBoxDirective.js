@@ -1,6 +1,4 @@
-var dailyStatus = angular.module('DailyStatus',[]);
-
-dailyStatus.directive('ngStatusReport', function() {
+dailyStatus.directive('ngStatusreport', function() {
 	return {
 		restrict: 'EA',
     	templateUrl: 'app/views/statusReport.html',

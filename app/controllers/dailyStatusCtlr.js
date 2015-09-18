@@ -19,5 +19,30 @@ dailyStatus.controller('DailyStatusController', ['$scope', 'DailyStatusService',
         $scope.activityTypes = arr;
     });
 
+    $scope.statusObject = [];
+    $scope.submit = function(data) {
+        /*if ($scope.text) {
+          $scope.list.push(this.text);
+          $scope.text = '';
+        } */ 
+        if(data){
+            if(DailyStatusService.validateStatusForm(data)){
+                var obj = {};
+                obj.date = data.date;
+                obj.project = data.project;
+                $scope.statusObject.push(obj);
+            }
+            else{
+                return;
+            }
+        } 
+        else{
+            alert('No data');
+        }     
+    };
+
+    
+
+
 
 }]);

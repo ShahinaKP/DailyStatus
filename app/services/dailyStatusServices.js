@@ -29,9 +29,19 @@ dailyStatus.service('DailyStatusService',['$http',
 					var promise = $http.get('assets/json/activityTypes.json').then(function (response){
 					return response.data;
 				});
-				return promise;	
-				
+				return promise;					
+			},
+				validateStatusForm: function(formData){					
+					if(formData.date && formData.project && formData.type && formData.timeHr && formData.timeMin && formData.description){
+						return true;
+					}
+					else{
+						return false;
+					}
+					
 			}
+
+
 		}
 
 
