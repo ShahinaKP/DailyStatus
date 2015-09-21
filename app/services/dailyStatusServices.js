@@ -16,31 +16,39 @@ dailyStatus.service('DailyStatusService',['$http',
 				}				
 				return datesArr;
 			},
-				getProjects: function(){
-					// $http returns a promise, which has a then function, which also returns a promise
-					var promise = $http.get('assets/json/projects.json').then(function (response){
-					return response.data;
-				});
-				return promise;	
+			getProjects: function(){
+				// $http returns a promise, which has a then function, which also returns a promise
+				var promise = $http.get('assets/json/projects.json').then(function (response){
+				return response.data;
+			});
+			return promise;	
 				
 			},
-				getActivities: function(){
-					// $http returns a promise, which has a then function, which also returns a promise
-					var promise = $http.get('assets/json/activityTypes.json').then(function (response){
-					return response.data;
-				});
-				return promise;					
+			getActivities: function(){
+				// $http returns a promise, which has a then function, which also returns a promise
+				var promise = $http.get('assets/json/activityTypes.json').then(function (response){
+				return response.data;
+			});
+			return promise;					
 			},
-				validateStatusForm: function(formData){					
-					if(formData.date && formData.project && formData.type && formData.timeHr && formData.timeMin && formData.description){
-						return true;
-					}
-					else{
-						return false;
-					}
+			validateStatusForm: function(formData){					
+				if(formData.date && formData.project && formData.type && formData.timeHr && formData.description){
+					return true;
+				}
+				else{
+					alert('Enter all fileds');
+					return false;
+				}
 					
+			},
+			clearFields: function(formData){
+				formData.date = ""; 
+				formData.project = "";
+				formData.type = "";
+				formData.timeHr = "";
+				formData.timeMin = "";
+				formData.description = "";
 			}
-
 
 		}
 

@@ -113,8 +113,32 @@
 		<div id="statusHistory">
 			<h1>My History</h1>
 			<!-- <ng-statusreport></ng-statusreport> -->
-			<div class="statusHistory" ng-repeat="statusObject in statusObjects" ng-modal="statusObject">
-				<ng-statusReport></ng-statusReport>
+			<div class="statusHistory" ng-repeat="statusObject in statusObjects">
+				<!-- <ng-statusReport ></ng-statusReport> -->
+				<div class="well" >
+				    <div class="row padding-top-10 breakWord">
+				        <div class="col-md-2 dailyStatusHistoryContainer">
+				            <span class="ng-binding">end-of-day</span><br>
+				            <span  class="ng-binding">{{statusObject.date}}</span><br><br>
+				            <span><small class="ng-binding">Posted on: {{statusObject.currentDate}} </small></span><br>
+				            <span><small class="ng-binding">{{statusObject.currentTime}}</small><span>
+				        </span></span></div>
+
+				        <div class="col-md-8 dailyStatusHistoryContainer">
+				           <span>
+				                <strong class="ng-binding">{{statusObject.description}}</strong>
+				            </span>
+				           <br>
+				        </div>
+
+				        <div class="col-md-2">
+				            <span class="ng-binding">{{statusObject.time}} hour(s)</span><br>
+				            <span class="ng-binding">{{statusObject.activityType}}</span><br><br>
+				            <span><a ng-href="/" target="_blank" class="ng-binding" href="/">{{statusObject.project}}</a></span><br>
+				        </div>
+
+				    </div>
+				</div>
 			</div>
 		</div>
 		
