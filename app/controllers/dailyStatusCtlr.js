@@ -9,7 +9,9 @@ dailyStatus.controller('DailyStatusController', ['$scope', 'DailyStatusService',
             arr.push(d[i].name);
         }
         $scope.projects = arr;
+        $scope.defaultProject = arr[0];
     });
+
 
     DailyStatusService.getActivities().then(function(d) {
         var arr = [];

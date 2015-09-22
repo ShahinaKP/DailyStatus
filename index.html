@@ -14,16 +14,16 @@
 				<div class="col-md-2">
                     <label class="label">Date</label>
                     <label class="select">
-                        <select class="input-sm" id="postedFor" name="postedFor" ng-model="data.date" ng-options="date for date in dates"></select> 
+                        <select class="input-sm" id="postedFor"  name="postedFor" ng-model="myDate" ng-options="date for date in dates"></select> 
                     </label>
                 </div>
 
                 <div class="col-md-4">
                     <label class="label">Project</label>
                     <label class="input">
-                        <input type="text" id="project" name="project" ng-model="data.project" list="projectList" autocomplete="off">
+                        <input type="text" id="project" name="project" ng-model="defaultProject" list="projectList" autocomplete="off">
                         <datalist id="projectList">
-                        	<select>
+                        	<select >
                         		<option ng-repeat="project in projects" value="{{project}}"></option>
                     		</select>
                         </datalist>
